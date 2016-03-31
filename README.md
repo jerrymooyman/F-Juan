@@ -32,7 +32,7 @@
 
 ## Preloaders
 Preloaders are configured in the module.preloaders section as an array.
-```json
+```javascript
     preloaders: {
             test: /\.js$/,  *regex to send files through to the loader*
             exclude: /node_modules/,    *regex to exclude files from the loader*    
@@ -45,7 +45,7 @@ Preloaders are configured in the module.preloaders section as an array.
 
 ## Loaders
 Loaders are configured in the module.loaders section as an array.
-```json
+```javascript
     loaders: {
             test: /\.es6$/,  *regex to send files through to the loader*
             exclude: /node_modules/,    *regex to exclude files from the loader*    
