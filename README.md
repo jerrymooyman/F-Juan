@@ -31,23 +31,27 @@
 *like above, but will allow localhost:8080 with auto reload on file changes*
 
 ## Preloaders
+Preloaders are configured in the module.preloaders section as an array.
+```json
     preloaders: {
             test: /\.js$/,  *regex to send files through to the loader*
             exclude: /node_modules/,    *regex to exclude files from the loader*    
             loader: 'jshint'  *the loader*
         }
-Preloaders are configured in the module.preloaders section as an array.
+```
 
 ### Useful preloaders
   * jshint-loader
 
 ## Loaders
+Loaders are configured in the module.loaders section as an array.
+```json
     loaders: {
             test: /\.es6$/,  *regex to send files through to the loader*
             exclude: /node_modules/,    *regex to exclude files from the loader*    
             loader: 'babel-loader'  *the loader*
         }
-Loaders are configured in the module.loaders section as an array.
+```
 
 ### Useful loaders
   * babel-loader
@@ -59,6 +63,7 @@ Loaders are configured in the module.loaders section as an array.
   * babel-preset-es2015
 
 ### Strip-Loader
+```javascript
     var WebpackStrip = require('strip-loader');
     var devConfig = require('./webpack.config');
     var stripLoader = {
@@ -68,24 +73,29 @@ Loaders are configured in the module.loaders section as an array.
     }
     devConfig.module.loaders.push(stripLoader);
     module.exports = devConfig;
-
+```
 
 ## Resolve
+```json
     extensions: ['', 'js', 'es6']
+```
 *override default file behaviour and specify which file types webpack should pickup*
 
 ## webpack.config
 ### Anatomy
     entry: "app.js"
  *top most file or files in the application*
+```json
     output: {
         filename: "bundle.js"
     }
-*output file*
+//output file*
     watch: true
-*watch files for changes*
+//watch files for changes*
+```
 
 ### sample file
+```javascript
     'use strict';
     var path = require('path');
     var webpack = require('webpack');
@@ -143,7 +153,7 @@ Loaders are configured in the module.loaders section as an array.
             ]
         }
     };
-
+```
 
 ## npm
 
@@ -159,7 +169,7 @@ We can configure a script to get node to run the webpack-dev-server for us
 
 *babel packages to enabled es6*
 ```json
-    babel-core:
+    babel-core
     babel-preset-es2015
 ```
 *loaders for webpack*
