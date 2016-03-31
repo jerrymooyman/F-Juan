@@ -156,11 +156,13 @@ We can configure a script to get node to run the webpack-dev-server for us
 ## npm dev packages
 
 *babel packages to enabled es6*
-``` babel-core:
+```json
+    babel-core:
     babel-preset-es2015
 ```
 *loaders for webpack*
-``` babel-loader
+```json
+    babel-loader
     react-loader": "^2.2.0",
     css-loader": "^0.23.1",
     file-loader": "^0.8.5",
@@ -171,7 +173,8 @@ We can configure a script to get node to run the webpack-dev-server for us
     style-loader": "^0.13.0",
 ```
 *react packages*
-``` babel-preset-react": "^6.3.13",
+```json
+    babel-preset-react": "^6.3.13",
     redux-devtools": "^3.1.1",
 
     webpack": "^1.12.14"
