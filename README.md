@@ -1,6 +1,6 @@
 # howto-webpack
 
-# Bacis CLI Commands
+## Bacis CLI Commands
     webpack app.js
 *create a bundle with app.js as entry point*
 
@@ -22,7 +22,7 @@
     webpack -p
 *build a production bundle*
 
-# Webpack Dev Server
+## Webpack Dev Server
 
     webpack-dev-server
 *builds and runs application in a local web server at localhost:8080/webpack-dev-server and localhost:8080.*
@@ -30,7 +30,7 @@
     webpack-dev-server --inline
 *like above, but will allow localhost:8080 with auto reload on file changes*
 
-# Preloaders
+## Preloaders
     preloaders: {
             test: /\.js$/,  *regex to send files through to the loader*
             exclude: /node_modules/,    *regex to exclude files from the loader*    
@@ -38,10 +38,10 @@
         }
 Preloaders are configured in the module.preloaders section as an array.
 
-## Useful preloaders
+### Useful preloaders
   * jshint-loader
 
-# Loaders
+## Loaders
     loaders: {
             test: /\.es6$/,  *regex to send files through to the loader*
             exclude: /node_modules/,    *regex to exclude files from the loader*    
@@ -49,16 +49,16 @@ Preloaders are configured in the module.preloaders section as an array.
         }
 Loaders are configured in the module.loaders section as an array.
 
-## Useful loaders
+### Useful loaders
   * babel-loader
   * strip-loader
 
-## Babel (transpiler)
+### Babel (transpiler)
   * babel-core
   * babel-loader
   * babel-preset-es2015
 
-## Strip-Loader
+### Strip-Loader
     var WebpackStrip = require('strip-loader');
     var devConfig = require('./webpack.config');
     var stripLoader = {
@@ -70,12 +70,12 @@ Loaders are configured in the module.loaders section as an array.
     module.exports = devConfig;
 
 
-# Resolve
+## Resolve
     extensions: ['', 'js', 'es6']
 *override default file behaviour and specify which file types webpack should pickup*
 
-# webpack.config
-## Anatomy
+## webpack.config
+### Anatomy
     entry: "app.js"
  *top most file or files in the application*
     output: {
@@ -85,7 +85,7 @@ Loaders are configured in the module.loaders section as an array.
     watch: true
 *watch files for changes*
 
-## sample file
+### sample file
     'use strict';
     var path = require('path');
     var webpack = require('webpack');
@@ -145,15 +145,15 @@ Loaders are configured in the module.loaders section as an array.
     };
 
 
-# npm
+## npm
 
-## scripts
+### scripts
 We can configure a script to get node to run the webpack-dev-server for us
 "scritps": {
         "start": "webpack-dev-server"
     }
 
-# npm dev packages
+## npm dev packages
 babel packages to enabled es6
 ======
     babel-core:
@@ -178,11 +178,11 @@ react packages
 
     webpack": "^1.12.14"
 
-# npm packages installed globally
+## npm packages installed globally
     webpack
     webpack-dev-server
 
-# npm application packages
+## npm application packages
     "bootstrap": "^3.3.6",
     "bootstrap-webpack": "0.0.5",
     "dropzone": "^4.3.0",
@@ -218,5 +218,5 @@ other
     toastr": "^2.1.2"
 
 
-references:
+## References:
 https://app.pluralsight.com/library/courses/webpack-fundamentals/table-of-contents
