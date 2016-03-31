@@ -72,19 +72,19 @@ loaders: {
 
 
 # Resolve
-extensions: ['', 'js', 'es6']
+    extensions: ['', 'js', 'es6']
 *override default file behaviour and specify which file types webpack should pickup*
 
 # webpack.config
 ## Anatomy
     entry: "app.js"
-    *top most file or files in the application*
+ *top most file or files in the application*
     output: {
         filename: "bundle.js"
     }
-    *output file*
+*output file*
     watch: true
-    *watch files for changes*
+*watch files for changes*
 
 
 ## sample file
