@@ -212,7 +212,7 @@ We can configure a script to get node to run the webpack-dev-server for us
     "react-dom": "^0.14.7",
     "react-dropzone": "^3.3.2",
 
-redux 
+router
 ======
     react-router: router
 
