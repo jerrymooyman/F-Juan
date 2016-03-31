@@ -77,14 +77,14 @@ extensions: ['', 'js', 'es6']
 
 # webpack.config
 ## Anatomy
-entry: "app.js"
-*top most file or files in the application*
-output: {
-    filename: "bundle.js"
-}
-*output file*
-watch: true
-*watch files for changes*
+    entry: "app.js"
+    *top most file or files in the application*
+    output: {
+        filename: "bundle.js"
+    }
+    *output file*
+    watch: true
+    *watch files for changes*
 
 
 ## sample file
