@@ -54,10 +54,9 @@ loaders: {
   * strip-loader
 
 ## Babel (transpiler)
-Requires modules:
-    * babel-core
-    * babel-loader
-    * babel-preset-es2015
+  * babel-core
+  * babel-loader
+  * babel-preset-es2015
 
 ## Strip-Loader
 
