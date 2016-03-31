@@ -31,23 +31,23 @@
 *like above, but will allow localhost:8080 with auto reload on file changes*
 
 # Preloaders
+    preloaders: {
+            test: /\.js$/,  *regex to send files through to the loader*
+            exclude: /node_modules/,    *regex to exclude files from the loader*    
+            loader: 'jshint'  *the loader*
+        }
 Preloaders are configured in the module.preloaders section as an array.
-preloaders: {
-        test: /\.js$/,  *regex to send files through to the loader*
-        exclude: /node_modules/,    *regex to exclude files from the loader*    
-        loader: 'jshint'  *the loader*
-    }
 
 ## Useful preloaders
   * jshint-loader
 
 # Loaders
+    loaders: {
+            test: /\.es6$/,  *regex to send files through to the loader*
+            exclude: /node_modules/,    *regex to exclude files from the loader*    
+            loader: 'babel-loader'  *the loader*
+        }
 Loaders are configured in the module.loaders section as an array.
-loaders: {
-        test: /\.es6$/,  *regex to send files through to the loader*
-        exclude: /node_modules/,    *regex to exclude files from the loader*    
-        loader: 'babel-loader'  *the loader*
-    }
 
 ## Useful loaders
   * babel-loader
@@ -59,7 +59,6 @@ loaders: {
   * babel-preset-es2015
 
 ## Strip-Loader
-
     var WebpackStrip = require('strip-loader');
     var devConfig = require('./webpack.config');
     var stripLoader = {
@@ -86,9 +85,7 @@ loaders: {
     watch: true
 *watch files for changes*
 
-
 ## sample file
-======
     'use strict';
     var path = require('path');
     var webpack = require('webpack');
