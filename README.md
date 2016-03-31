@@ -149,9 +149,11 @@ Loaders are configured in the module.loaders section as an array.
 
 ### scripts
 We can configure a script to get node to run the webpack-dev-server for us
+```json
 "scritps": {
         "start": "webpack-dev-server"
     }
+```
 
 ## npm dev packages
 
