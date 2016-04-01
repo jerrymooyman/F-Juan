@@ -1,7 +1,12 @@
 # howto-react-with-webpack
 
 * [Webpack notes](#webpack-notes)
+    - [Webpack Dev Server]
 * [npm notes](#npm-notes)
+* [React]
+* [React Router]
+* [Redux]
+    - [Redux Middleware]
 
 ## Webpack Notes
 
@@ -99,3 +104,13 @@ Loaders are configured in the module.loaders section as an array.
 //watch files for changes*
 ```
 
+## React
+
+## React Router
+[Github repo](https://github.com/reactjs/react-router)
+
+## Redux
+[Redux on Github](https://github.com/reactjs/redux)
+
+### Resources
+https://egghead.io/series/getting-started-with-redux
