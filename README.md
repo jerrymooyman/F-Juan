@@ -94,10 +94,6 @@ Loaders are configured in the module.loaders section as an array.
 //watch files for changes*
 ```
 
-### sample file
-
-```
-
 ## npm
 
 ### scripts
