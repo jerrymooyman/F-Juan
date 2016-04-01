@@ -1,2 +1,3 @@
 # howto-react-with-webpack
-some notes on webpack
+
+[Webpack notes|https://github.com/jerrymooyman/howto-react-with-webpack/blob/master/Webpack-notes.md]
