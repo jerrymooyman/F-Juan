@@ -1,4 +1,4 @@
-# howto-webpack
+# Webpack Notes
 
 ## Bacis CLI Commands
     webpack app.js
