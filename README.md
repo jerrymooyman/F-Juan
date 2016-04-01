@@ -76,7 +76,7 @@ Loaders are configured in the module.loaders section as an array.
 ```
 
 ## Resolve
-```json
+```javascript
     extensions: ['', 'js', 'es6']
 ```
 *override default file behaviour and specify which file types webpack should pickup*
@@ -85,7 +85,7 @@ Loaders are configured in the module.loaders section as an array.
 ### Anatomy
     entry: "app.js"
  *top most file or files in the application*
-```json
+```javascript
     output: {
         filename: "bundle.js"
     }
