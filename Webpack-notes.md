@@ -98,7 +98,7 @@ Loaders are configured in the module.loaders section as an array.
 
 ### scripts
 We can configure a script to get node to run the webpack-dev-server for us
-```json
+```javascript
 "scritps": {
         "start": "webpack-dev-server"
     }
@@ -107,12 +107,13 @@ We can configure a script to get node to run the webpack-dev-server for us
 ## npm dev packages
 
 *babel packages to enabled es6*
-```json
+```javascript
     babel-core
     babel-preset-es2015
 ```
+
 *loaders for webpack*
-```json
+```javascript
     babel-loader
     react-loader": "^2.2.0",
     css-loader": "^0.23.1",
