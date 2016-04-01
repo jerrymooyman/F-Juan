@@ -3,9 +3,9 @@
 * [Webpack notes](#webpack-notes)
 * [npm notes](#npm-notes)
 
-# Webpack Notes
+## Webpack Notes
 
-## Bacis CLI Commands
+### Bacis CLI Commands
     webpack app.js
 *create a bundle with app.js as entry point*
 
@@ -27,7 +27,7 @@
     webpack -p
 *build a production bundle*
 
-## Webpack Dev Server
+### Webpack Dev Server
 
     webpack-dev-server
 *builds and runs application in a local web server at localhost:8080/webpack-dev-server and localhost:8080.*
@@ -35,7 +35,7 @@
     webpack-dev-server --inline
 *like above, but will allow localhost:8080 with auto reload on file changes*
 
-## Preloaders
+### Preloaders
 Preloaders are configured in the module.preloaders section as an array.
 ```javascript
     preloaders: {
@@ -45,10 +45,10 @@ Preloaders are configured in the module.preloaders section as an array.
         }
 ```
 
-### Useful preloaders
+#### Useful preloaders
   * jshint-loader
 
-## Loaders
+### Loaders
 Loaders are configured in the module.loaders section as an array.
 ```javascript
     loaders: {
@@ -58,16 +58,16 @@ Loaders are configured in the module.loaders section as an array.
         }
 ```
 
-### Useful loaders
+#### Useful loaders
   * babel-loader
   * strip-loader
 
-### Babel (transpiler)
+#### Babel (transpiler)
   * babel-core
   * babel-loader
   * babel-preset-es2015
 
-### Strip-Loader
+#### Strip-Loader
 ```javascript
     var WebpackStrip = require('strip-loader');
     var devConfig = require('./webpack.config');
@@ -80,14 +80,14 @@ Loaders are configured in the module.loaders section as an array.
     module.exports = devConfig;
 ```
 
-## Resolve
+### Resolve
 ```javascript
     extensions: ['', 'js', 'es6']
 ```
 *override default file behaviour and specify which file types webpack should pickup*
 
-## webpack.config
-### Anatomy
+### webpack.config
+#### Anatomy
     entry: "app.js"
  *top most file or files in the application*
 ```javascript
