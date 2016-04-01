@@ -154,6 +154,8 @@ We can configure a script to get node to run the webpack-dev-server for us
 router
 ======
     react-router: router
+Reference:
+* https://github.com/reactjs/react-router
 
 redux 
 ======
@@ -163,12 +165,12 @@ redux
 
 redux middleware
 ======
-    redux-logger": "^2.6.1",
-    redux-thunk": "^2.0.1",
+    redux-thunk: handles redux middleware
+    redux-logger: middleware for logging application state
 
 other
 ======
-    toastr": "^2.1.2"
+    toastr: 
 
 
 ## References:
