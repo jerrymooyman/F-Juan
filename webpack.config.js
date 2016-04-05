@@ -1,8 +1,10 @@
 'use strict';
+
 var path = require('path');
 var webpack = require('webpack');
+
 module.exports = {
-    entry: './src/main.js',
+    entry: './app/app.js',
     output: {
         // path: path.join(__dirname, './dist'),
         filename: 'bundle.js'

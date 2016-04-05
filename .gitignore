@@ -1,1 +1,10 @@
+# settings files
+.eslintrc
+
+# packages
 node_modules
+
+# built files
+bundle.js
+
+
