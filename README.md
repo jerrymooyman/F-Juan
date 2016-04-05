@@ -1,8 +1,8 @@
 # howto-react-with-webpack
 
-* [Webpack notes](#webpack-notes)
+* [Webpack](#webpack-notes)
     - [Webpack Dev Server]
-* [npm notes](#npm-notes)
+* [npm](#npm-notes)
 * [React]
 * [React Router]
 * [Redux]
@@ -31,6 +31,9 @@
 
     webpack -p
 *build a production bundle*
+
+    webpack -d
+*builds source map files*
 
 ### Webpack Dev Server
 
@@ -85,23 +88,35 @@ Loaders are configured in the module.loaders section as an array.
     module.exports = devConfig;
 ```
 
-### Resolve
-```javascript
-    extensions: ['', 'js', 'es6']
-```
-*override default file behaviour and specify which file types webpack should pickup*
-
 ### webpack.config
-#### Anatomy
-    entry: "app.js"
- *top most file or files in the application*
 ```javascript
-    output: {
-        filename: "bundle.js"
+    var path = require('path');
+    module.exports = {
+        context: path.resolve('js'), //tells webpack to look for entry files in the 'js' directory
+        entry: ['file1.js', 'file2.js'], //tells webpack to start bundling from these files
+        output: {
+            path: path.resolve('build/js'), //tells webpack to put the bundle.js file in the build/js directory
+            publicPath: '/public/assets/js/', //tells webpack that bundle.js will be served from this directory
+            filename: "bundle.js"
+        },
+
+        watch: true,
+
+        devServer: {
+            contentBase: 'public'
+        },
+
+        module: {
+            loaders: [
+                {
+                    test: /\.es6$/, //regex to send files through to the loader*
+                    exclude: /node_modules/, //regex to exclude files from the loader*    
+                    loader: 'babel-loader' //the loader
+                }
+            ]
+        }
     }
-//output file*
-    watch: true
-//watch files for changes*
+    extensions: ['', 'js', 'es6'] -override default file behaviour and specify which file types webpack should pickup*
 ```
 
 ## React
@@ -113,4 +128,5 @@ Loaders are configured in the module.loaders section as an array.
 [Redux on Github](https://github.com/reactjs/redux)
 
 ### Resources
-https://egghead.io/series/getting-started-with-redux
+[Webpack fundamentals - PluralSight](https://app.pluralsight.com/library/courses/webpack-fundamentals/table-of-contents)
+[Getting started with Redux](https://egghead.io/series/getting-started-with-)redux
