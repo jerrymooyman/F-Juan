@@ -4,7 +4,7 @@
   "description": "basic project setup",
   "main": "server.js",
   "scripts": {
-    "postinstall": "webpack --config webpack-heroku.config.js --progress --colors",
+    "postinstall": "webpack --config ./webpack-heroku.config.js --progress --colors",
     "start": "node server.js"
   },
   "repository": {
