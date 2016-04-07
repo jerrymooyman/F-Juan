@@ -6,7 +6,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: './app/main.js',
     output: {
-        path: path.join(__dirname, './app'),
+        path: path.join(__dirname),
         filename: 'scripts/bundle.js'
     },
     plugins: [

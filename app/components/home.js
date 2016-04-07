@@ -2,10 +2,12 @@
 
 import React, { Component } from 'react'
 
-export class home extends Component {
+class Home extends Component {
 	render() {
 		return (
 			<div></div>
 		)
 	}
 }
+
+module.exports = Home
