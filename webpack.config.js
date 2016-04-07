@@ -6,13 +6,13 @@ var webpack = require('webpack');
 module.exports = {
     entry: './app/app.js',
     output: {
-        // path: path.join(__dirname, './dist'),
+        path: path.join(__dirname, './app'),
         filename: 'bundle.js'
     },
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: "jquery"
+            jQuery: 'jquery'
         })
     ],
     module: {    
@@ -28,24 +28,24 @@ module.exports = {
             // loads bootstrap's css.
             { 
                 test: /\.woff(\?v=\d+\.\d+\.\d+)?/,   
-                loader: "url?limit=10000&mimetype=application/font-woff" 
+                loader: 'url?limit=10000&mimetype=application/font-woff' 
             },
             { 
                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    
-                loader: "url?limit=10000&mimetype=application/octet-stream" 
+                loader: 'url?limit=10000&mimetype=application/octet-stream' 
             },
             { 
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    
-                loader: "file" 
+                loader: 'file' 
             },
             { 
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    
-                loader: "url?limit=10000&mimetype=image/svg+xml" 
+                loader: 'url?limit=10000&mimetype=image/svg+xml' 
             },
 
             { 
                 test: /\.css$/, 
-                loader: "style-loader!css-loader" 
+                loader: 'style-loader!css-loader' 
             },
           
             { 
