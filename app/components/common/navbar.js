@@ -15,7 +15,7 @@ class Navbar extends React.Component {
 				        <span className="icon-bar"></span>
 				        <span className="icon-bar"></span>
 				    </button>
-			    	<Link className="navbar-brand" to='/'>PaySmart - Client Transfer Utility</Link>
+			    	<Link className="navbar-brand" to='/'>My React Project</Link>
 			    </div>
 			    <ul className="nav navbar-nav navbar-right">
 			        <li><Link to='/about'>About</Link></li>
