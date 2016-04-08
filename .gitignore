@@ -8,3 +8,8 @@ node_modules
 bundle.js
 
 
+*.woff2
+*.svg
+*.ttf
+*.eot
+*.woff
