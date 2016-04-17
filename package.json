@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "webpack --config ./webpack-heroku.config.js --progress --colors",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
