@@ -19,12 +19,12 @@ class Navbar extends React.Component {
 	              <span className="icon-bar"></span>
 	              <span className="icon-bar"></span>
 	            </button>
-	            <a className="navbar-brand" href="#">Project name</a>
+	            <a className="navbar-brand" href="#">Formula 1</a>
 	          </div>
 	          <div id="navbar" className="navbar-collapse collapse">
 	            <ul className="nav navbar-nav">
 	              <li className="active"><a href="#">Home</a></li>
-	              <li><a href="#">About</a></li>
+	              <li><a href="#">Schedule</a></li>
 	              <li><a href="#">Contact</a></li>
 	              <li className="dropdown">
 	                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>

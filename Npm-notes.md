@@ -1,2 +1,0 @@
-# Npm Notes
-
