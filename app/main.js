@@ -19,6 +19,7 @@ import configureStore from './stores/configureStore'
 // Components to feed into the router
 import App from './components/app'
 import Home from './components/home'
+import DriversPage from './components/driversPage'
 // import CustomerList from './components/CustomerList.js'
 // import About from './components/About.js'
 // import NoMatch from './components/errors/404.js'
@@ -35,6 +36,9 @@ render(
 		<Router history={browserHistory}>
 			<Route path='/' component={App}>
 				<IndexRoute component={Home}/>
+                <Route path='schedule' component={DriversPage}/>
+                <Route path='drivers' component={DriversPage}/>
+                <Route path='constructors' component={DriversPage}/>
 	    	</Route>
 	  	</Router>
 	</Provider>,

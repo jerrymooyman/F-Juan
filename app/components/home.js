@@ -1,7 +1,6 @@
 'use strict'
 
 import React, { Component } from 'react'
-import SideMenu from './common/sideMenu'
 
 class Home extends Component {
 

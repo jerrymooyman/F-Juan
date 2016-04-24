@@ -1,12 +1,37 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {slide as Menu} from 'react-burger-menu'
+import { Link } from 'react-router';
+import { slide as Menu } from 'react-burger-menu'
+import SideMenuItem from './sideMenuItem'
 
 class SideMenu extends Component {
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			isOpen: false
+		}
+	}
+
   	showSettings(event) {
-    	event.preventDefault();
+		this.setMenuVisibleState(false)
+	}
+
+	toggleMenuVisible(event) {
+		this.setMenuVisibleState(!this.state.isOpen)
+	}
+
+	setMenuVisibleState(isVisible) {
+    	this.setState({
+    		isOpen: isVisible
+    	})
+	}
+
+	isMenuOpen(state) {
+		console.log(state.isOpen)
+		this.setMenuVisibleState(state.isOpen)
+		// return state.isOpen
 	}
 
 	render() {
@@ -18,22 +43,40 @@ class SideMenu extends Component {
 		}
 
 		return (
-		    <Menu id='slide' pageWrapId="page-wrap" outerContainerId='outer-container' >
-		        <a id="home" href="/" style={style.a} >
-		        	<span><h2>Formula One</h2></span>
-		        </a>
-		        <a id="home" href="/" style={style.a} >
-		        	<i className="fa fa-calendar-o"></i>
-		        	<span>Schedule</span>
-		        </a>
-		        <a id="home" href="/" style={style.a} >
-		        	<i className="fa fa-user" aria-hidden="true"></i>
-		        	<span>Drivers</span>
-		        </a>
-		        <a id="home" href="/" style={style.a} >
-		        	<i className="fa fa-car" aria-hidden="true"></i>
-		        	<span>Constructors</span>
-		        </a>
+		    <Menu id='slide' pageWrapId="page-wrap" outerContainerId='outer-container' isOpen={this.state.isOpen} onStateChange={ this.isMenuOpen.bind(this) }>
+		    	<ul>
+		    		<li>
+						<Link style={style.a} to="/" onClick={ this.showSettings.bind(this) } >
+				        	<span><h2>Formula One</h2></span>
+						</Link>
+		    		</li>
+		    		<li>
+		    			<SideMenuItem  	name='Schedule'
+		    							path='/schedule'
+		    							style={ style.a }
+		    							classNameString='fa fa-calendar-o'
+		    							onClick={ this.showSettings.bind(this) } />
+		    		</li>
+		    			<SideMenuItem  	name='Drivers'
+		    							path='/drivers'
+		    							style={ style.a }
+		    							classNameString='fa fa-user'
+		    							onClick={ this.showSettings.bind(this) } />
+		    		<li>
+		    			<SideMenuItem  	name='Constructors'
+		    							path='/constructors'
+		    							style={ style.a }
+		    							classNameString='fa fa-car'
+		    							onClick={ this.showSettings.bind(this) } />
+		    		</li>
+		    		<li>
+		    			<SideMenuItem  	name='Schedule'
+		    							path='/schedule'
+		    							style={ style.a }
+		    							classNameString='fa fa-calendar-o'
+		    							onClick={ this.showSettings.bind(this) } />
+		    		</li>
+		    	</ul>
 		    </Menu>	
 		)
 	}
