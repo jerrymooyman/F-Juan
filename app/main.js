@@ -4,7 +4,9 @@ import jQuery from 'jquery'
 import $ from 'jquery'
 import React from 'react'
 import { render } from 'react-dom'
-import bootStrap from 'bootstrap-webpack'
+// import 'bootstrap-webpack'
+// import 'font-awesome-webpack'
+// import 'normalize.css'
 
 // Router objects
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router'
