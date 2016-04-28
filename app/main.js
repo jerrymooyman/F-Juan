@@ -4,9 +4,6 @@ import jQuery from 'jquery'
 import $ from 'jquery'
 import React from 'react'
 import { render } from 'react-dom'
-// import 'bootstrap-webpack'
-// import 'font-awesome-webpack'
-// import 'normalize.css'
 
 // Router objects
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router'
@@ -20,6 +17,8 @@ import configureStore from './stores/configureStore'
 import App from './components/app'
 import Home from './components/home'
 import DriversPage from './components/driversPage'
+import RaceSchedulePage from './components/raceSchedulePage'
+import StandingsPage from './components/standingsPage'
 // import CustomerList from './components/CustomerList.js'
 // import About from './components/About.js'
 // import NoMatch from './components/errors/404.js'
@@ -36,7 +35,8 @@ render(
 		<Router history={browserHistory}>
 			<Route path='/' component={App}>
 				<IndexRoute component={Home}/>
-                <Route path='schedule' component={DriversPage}/>
+                <Route path='schedule' component={RaceSchedulePage}/>
+                <Route path='standings' component={DriversPage}/>
                 <Route path='drivers' component={DriversPage}/>
                 <Route path='constructors' component={DriversPage}/>
 	    	</Route>

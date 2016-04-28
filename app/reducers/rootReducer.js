@@ -1,9 +1,8 @@
 'use strict'
 
-import { createStore } from 'redux'
+import { combineReducers } from 'redux'
+import uiviewReducer from './uiviewReducer'
 
-let rootReducer = function(state, action) {
-	return state
-}
-
-module.exports = rootReducer
+export default combineReducers({
+	uiview: uiviewReducer
+})

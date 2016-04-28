@@ -11,6 +11,15 @@ import { routerMiddleware } from 'react-router-redux'
 import { browserHistory } from 'react-router'
 
 const initialState = {
+	uiview: {
+		sideNavVisible: false,
+		currentPageInfo: 
+		{
+			key: 'schedule',
+			title: 'Race Schedule',
+			route: '/schedule'
+		}
+	}
 }
 
 const reduxlogger = createLogger()

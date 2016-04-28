@@ -3,23 +3,20 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-
 module.exports = {
     entry: './app/main.js',
     output: {
-        path: path.join(__dirname),
+        path: path.join(__dirname + '/app'),
         filename: 'scripts/bundle.js'
     },
     plugins: [
-        new ExtractTextPlugin('[name].css'),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
         })
     ],
 
-    watch: true,
+    // watch: true,
 
     devServer: {
         contentBase: 'app'
@@ -41,10 +38,10 @@ module.exports = {
                 test: /bootstrap\/js\//, 
                 loader: 'imports?jQuery=jquery' 
             },
-            {
-                test: require.resolve("react-burger-menu"),
-                loader: "imports?this=>window"
-            },
+            // {
+            //     test: require.resolve("react-burger-menu"),
+            //     loader: "imports?this=>window"
+            // },
            
             // // the url-loader uses DataUrls.
             // // the file-loader emits files.
@@ -75,23 +72,23 @@ module.exports = {
                 loader: 'style-loader!css-loader' 
             },
 
-            // font awesome stuff
-            {
-              test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-              loader: "url?limit=10000&mimetype=application/font-woff"
-            }, {
-              test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-              loader: "url?limit=10000&mimetype=application/font-woff"
-            }, {
-              test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-              loader: "url?limit=10000&mimetype=application/octet-stream"
-            }, {
-              test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-              loader: "file"
-            }, {
-              test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-              loader: "url?limit=10000&mimetype=image/svg+xml"
-            }
+            // // font awesome stuff
+            // {
+            //   test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+            //   loader: "url?limit=10000&mimetype=application/font-woff"
+            // }, {
+            //   test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+            //   loader: "url?limit=10000&mimetype=application/font-woff"
+            // }, {
+            //   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+            //   loader: "url?limit=10000&mimetype=application/octet-stream"
+            // }, {
+            //   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+            //   loader: "file"
+            // }, {
+            //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            //   loader: "url?limit=10000&mimetype=image/svg+xml"
+            // }
         ]
     }
 };
