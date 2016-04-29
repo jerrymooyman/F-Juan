@@ -19,6 +19,10 @@ const initialState = {
 			title: 'Race Schedule',
 			route: '/schedule'
 		}
+	},
+	raceSchedule: {
+		season: null,
+		races: null
 	}
 }
 

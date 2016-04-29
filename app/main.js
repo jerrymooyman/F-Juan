@@ -1,9 +1,12 @@
 'use strict'
 
+import 'babel-polyfill'
+
 import jQuery from 'jquery'
 import $ from 'jquery'
 import React from 'react'
 import { render } from 'react-dom'
+require('./main.scss')
 
 // Router objects
 import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router'
@@ -34,7 +37,7 @@ render(
 	<Provider store={store}>
 		<Router history={browserHistory}>
 			<Route path='/' component={App}>
-				<IndexRoute component={Home}/>
+				<IndexRoute component={RaceSchedulePage}/>
                 <Route path='schedule' component={RaceSchedulePage}/>
                 <Route path='standings' component={DriversPage}/>
                 <Route path='drivers' component={DriversPage}/>

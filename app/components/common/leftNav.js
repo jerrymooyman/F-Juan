@@ -58,10 +58,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setSideNavVisible(isVisible))
     },
     onNavigateRoute: (route) => {
-      // dispatch(setSideNavVisible(false))
       dispatch(navigateFromSideNav(route))
-      // let pageInfoAction = dispatch(navigateFromSideNav(route))
-      // dispatch(pageInfoAction)
     }
   }
 }

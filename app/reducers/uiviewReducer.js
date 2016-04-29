@@ -5,7 +5,7 @@ import _ from 'lodash'
 import {
 	SET_SIDE_NAV_VISIBLE,
 	NAVIGATE_ROUTE
-} from '../actions/actionTypes'
+} from '../actions/actions'
 
 
 export default function uiviewReducer (state = {}, action) {
