@@ -23,7 +23,7 @@ class NavBar extends Component {
 
 		return (
 			<AppBar
-			    title={"Formula 1 - " + this.props.pageInfo.title}
+			    title={this.props.pageInfo.title + ((this.props.season) ? " - Season " + this.props.season : "")}
 			    iconClassNameRight="muidocs-icon-navigation-expand-more"
 			    // style={ styles.appbar }
 			    onLeftIconButtonTouchTap={this.props.onSetSideNavVisible.bind(this, !this.props.sideNavVisible)}
@@ -36,7 +36,8 @@ class NavBar extends Component {
 const mapStateToProps = (state) => {
   return {
     sideNavVisible: state.uiview.sideNavVisible,
-    pageInfo: state.uiview.currentPageInfo
+    pageInfo: state.uiview.currentPageInfo,
+    season: state.raceSchedule.season,
   }
 }
 

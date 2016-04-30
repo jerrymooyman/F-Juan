@@ -7,10 +7,16 @@ import RaisedButton from 'material-ui/lib/raised-button'
 import Paper from 'material-ui/lib/paper'
 import LoadingIndicator from './common/loadingIndicator'
 import DataTable from './dataTable'
+import CardList from './cardList'
 
 
 import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import RefreshIcon from 'material-ui/lib/svg-icons/navigation/refresh'
+
+import {
+  fetchData
+} from '../actions/actions'
+
 
 //TIP: import your actions
 //import {
@@ -19,25 +25,16 @@ import RefreshIcon from 'material-ui/lib/svg-icons/navigation/refresh'
 
 class raceSchedule extends Component {
 
+  componentDidMount() {
+    this.props.onRefresh()
+  }
+
   render() {
-    const style = {
-      paper: {
-        // height: 100,
-        // width: 80%,
-        // margin: 5,
-        textAlign: 'center',
-        // display: 'inline-block',
-      },
-      floatingButton: {
-        marginRight: 20,
-      }
-    };
+            // <DataTable dataTable={this.props.races} />
+        // <Paper style={style.paper} zDepth={3} >
     return (
       <div>
-        <Paper style={style.paper} zDepth={3} >
-            <h2>Season {(this.props.season) ? this.props.season : '...'} </h2>
-            <DataTable dataTable={this.props.races} />
-        </Paper>
+          <CardList data={this.props.races} />
       </div>
     )
   }
@@ -67,10 +64,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  	//TIP: place your action mapping here
-    //onSomeEvent: (actionArgs) => {
-    //  dispatch(myAction(actionArgs))
-    //}
+    onRefresh: () => {
+      dispatch(fetchData('reactjs'))
+    }
   }
 }
 
