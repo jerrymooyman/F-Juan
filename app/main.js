@@ -22,6 +22,7 @@ import Home from './components/home'
 import DriversPage from './components/driversPage'
 import RaceSchedulePage from './components/raceSchedulePage'
 import StandingsPage from './components/standingsPage'
+import ResultsPage from './components/resultsPage.js'
 // import CustomerList from './components/CustomerList.js'
 // import About from './components/About.js'
 // import NoMatch from './components/errors/404.js'
@@ -37,7 +38,7 @@ render(
 	<Provider store={store}>
 		<Router history={browserHistory}>
 			<Route path='/' component={App}>
-				<IndexRoute component={RaceSchedulePage}/>
+				<IndexRoute component={ResultsPage}/>
                 <Route path='schedule' component={RaceSchedulePage}/>
                 <Route path='standings' component={DriversPage}/>
                 <Route path='drivers' component={DriversPage}/>

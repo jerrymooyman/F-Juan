@@ -10,20 +10,34 @@ import rootReducer from '../reducers/rootReducer'
 import { routerMiddleware } from 'react-router-redux'
 import { browserHistory } from 'react-router'
 
+import {
+	RESULTS	
+} from '../actions/actions'
+
 const initialState = {
 	uiview: {
 		sideNavVisible: false,
 		currentPageInfo: 
 		{
-			key: 'schedule',
-			title: 'Race Schedule',
-			route: '/schedule'
-		}
+			key: 'results',
+			title: 'Results',
+			route: '/'
+		},
+		lastApiCall: RESULTS
+	},
+	results: {
+	    circuitName: null,
+	    round: null,
+	    raceName:null,
+	    date: null,
+	    time: null,
+	    location: null,
+	  	results:null,
 	},
 	raceSchedule: {
 		season: null,
 		races: null
-	}
+	},
 }
 
 const reduxlogger = createLogger()

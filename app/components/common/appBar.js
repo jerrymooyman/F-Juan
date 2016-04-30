@@ -9,13 +9,13 @@ import RefreshIcon from 'material-ui/lib/svg-icons/navigation/refresh'
 
 import {
   setSideNavVisible,
-  fetchData
+  refreshPage
 } from '../../actions/actions'
 
 class NavBar extends Component {
 
 	refresh() {
-		this.props.onRefresh()
+		this.props.onRefresh(this.props.lastApiCall)
 	}
 
 	render() {
@@ -23,7 +23,7 @@ class NavBar extends Component {
 
 		return (
 			<AppBar
-			    title={this.props.pageInfo.title + ((this.props.season) ? " - Season " + this.props.season : "")}
+			    title={ this.props.pageInfo.title }
 			    iconClassNameRight="muidocs-icon-navigation-expand-more"
 			    // style={ styles.appbar }
 			    onLeftIconButtonTouchTap={this.props.onSetSideNavVisible.bind(this, !this.props.sideNavVisible)}
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
   return {
     sideNavVisible: state.uiview.sideNavVisible,
     pageInfo: state.uiview.currentPageInfo,
-    season: state.raceSchedule.season,
+    lastApiCall: state.uiview.lastApiCall
   }
 }
 
@@ -46,8 +46,8 @@ const mapDispatchToProps = (dispatch) => {
     onSetSideNavVisible: (isVisible) => {
       dispatch(setSideNavVisible(isVisible))
     },
-    onRefresh: () => {
-    	dispatch(fetchData('reactjs'))
+    onRefresh: (apiUrlKey) => {
+    	dispatch(refreshPage(apiUrlKey))
     }
   }
 }

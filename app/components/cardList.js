@@ -11,14 +11,7 @@ import CardText from 'material-ui/lib/card/card-text';
 import Paper from 'material-ui/lib/paper'
 
 class CardList extends Component {
-
-						      // <TableRow key={row.date} style={(moment(row.date) < moment()) ? {backgroundColor:'#F7FFC5', color: 'grey',} : null}>
-						      //   <TableRowColumn>{row.round}</TableRowColumn>
-						      //   <TableRowColumn>{row.raceName}</TableRowColumn>
-						      //   <TableRowColumn>{row.date}</TableRowColumn>
-						      //   <TableRowColumn>{row.circuitName}</TableRowColumn>
-						      //   <TableRowColumn>{row.location}</TableRowColumn>
-						      // </TableRow>
+	
 	render() {
 	    const style = {
 	      paper: {
@@ -50,8 +43,8 @@ class CardList extends Component {
 		    		this.props.data.map( row => {
 			    		return (
 
-        					<Paper style={style.paper} zDepth={3} >
-							  <Card key={ row.date }>
+        					<Paper key={ row.date} style={style.paper} zDepth={2} >
+							  <Card>
 							    <CardTitle title={ row.raceName } subtitle={ row.circuitName + ', ' + row.location} style={ style.cardTitle } />
 							    <CardText style={ style.cardText }>
 							    	Round { row.round }   Date { row.date}

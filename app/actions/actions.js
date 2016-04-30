@@ -10,6 +10,11 @@ const pageInfoMap = [
 		route: '/schedule'
 	},
 	{
+		key: 'results',
+		title: 'Results',
+		route: '/'
+	},
+	{
 		key: 'standings',
 		title: 'Standings',
 		route: '/standings'
@@ -19,6 +24,23 @@ const pageInfoMap = [
 		title: 'Drivers',
 		route: '/drivers'
 	}
+]
+
+// these are the keys for api calls
+export const CURRENT_SCHEDULE = 'CURRENT_SCHEDULE'
+export const RESULTS = 'RESULTS'
+const apiUrlInfoMap = [
+	{
+		key: CURRENT_SCHEDULE,
+		description: 'Current Schedule',
+		url: 'http://ergast.com/api/f1/current.json'
+	},
+	{
+		key: RESULTS,
+		description: 'Results',
+		url: 'http://ergast.com/api/f1/current/last/results.json'
+	},
+	
 ]
 
 export const SET_SIDE_NAV_VISIBLE = 'SET_SIDE_NAV_VISIBLE'
@@ -36,7 +58,6 @@ export function navigateFromSideNav(route) {
 	return dispatch => {
 		// close side nav
 		dispatch(setSideNavVisible(false))	
-
 		// navigate route to new page
 		let index = _.findIndex(pageInfoMap, { key: route})
 		let pageInfo = pageInfoMap[index]
@@ -54,39 +75,41 @@ export function navigateFromSideNav(route) {
 
 
 export const REQUEST_DATA= 'REQUEST_DATA'
-function requestData(subreddit) {
+function requestData(key) {
   return {
     type: REQUEST_DATA,
-    subreddit
+    key
   }
 }
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
-function receiveData(subreddit, json) {
+function receiveData(key, json) {
   return {
     type: RECEIVE_DATA,
-    subreddit,
-    data: {
-    	season: json.MRData.RaceTable.season,
-    	races: json.MRData.RaceTable.Races
-    },
+    key,
+    data: json,
+    // data: {
+    	// season: json.MRData.RaceTable.season,
+    	// races: json.MRData.RaceTable.Races
+    // },
     // posts: json.data.children.map(child => child.data),
     receivedAt: Date.now()
   }
 }
 
-export function fetchData(subreddit) {
-
+export function fetchData(key) {
   // Thunk middleware knows how to handle functions.
   // It passes the dkispatch method as an argument to the function,
   // thus making it able to dispatch actions itself.
+	let index = _.findIndex(apiUrlInfoMap, { key: key})
+	let apiUrlInfo = apiUrlInfoMap[index]
 
   return function (dispatch) {
 
     // First dispatch: the app state is updated to inform
     // that the API call is starting.
 
-    dispatch(requestData(subreddit))
+    dispatch(requestData(key))
 
     // The function called by the thunk middleware can return a value,
     // that is passed on as the return value of the dispatch method.
@@ -94,17 +117,24 @@ export function fetchData(subreddit) {
     // In this case, we return a promise to wait for.
     // This is not required by thunk middleware, but it is convenient for us.
 
-    return fetch(`http://ergast.com/api/f1/current.json`)
+    // return fetch(`http://ergast.com/api/f1/current.json`)
+    return fetch(apiUrlInfo.url)
       .then(response => response.json())
       .then(json =>
 
         // We can dispatch many times!
         // Here, we update the app state with the results of the API call.
 
-        dispatch(receiveData(subreddit, json))
+        dispatch(receiveData(key, json))
       )
 
       // In a real world app, you also want to
       // catch any error in the network call.
   }
+}
+
+export function refreshPage(apiUrlKey) {
+	return function (dispatch) {
+		dispatch(fetchData(apiUrlKey))
+	}
 }

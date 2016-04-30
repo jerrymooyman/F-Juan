@@ -37,6 +37,7 @@ class LeftNavDock extends React.Component {
           open={this.props.sideNavVisible}
           onRequestChange={open => this.dosomething({open})}
           >
+          <MenuItem onTouchTap={this.props.onNavigateRoute.bind(this, 'results')}>Home</MenuItem>
           <MenuItem onTouchTap={this.props.onNavigateRoute.bind(this, 'schedule')}>Race Schedule</MenuItem>
           <MenuItem onTouchTap={this.props.onNavigateRoute.bind(this, 'standings')}>Standings</MenuItem>
           <MenuItem onTouchTap={this.props.onNavigateRoute.bind(this, 'drivers')}>Drivers</MenuItem>

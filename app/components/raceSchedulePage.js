@@ -14,7 +14,9 @@ import FloatingActionButton from 'material-ui/lib/floating-action-button';
 import RefreshIcon from 'material-ui/lib/svg-icons/navigation/refresh'
 
 import {
-  fetchData
+  fetchData,
+
+  CURRENT_SCHEDULE
 } from '../actions/actions'
 
 
@@ -65,7 +67,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onRefresh: () => {
-      dispatch(fetchData('reactjs'))
+      dispatch(fetchData(CURRENT_SCHEDULE))
     }
   }
 }
