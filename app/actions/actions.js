@@ -29,6 +29,7 @@ const pageInfoMap = [
 // these are the keys for api calls
 export const CURRENT_SCHEDULE = 'CURRENT_SCHEDULE'
 export const RESULTS = 'RESULTS'
+export const DRIVERS = 'DRIVERS'
 const apiUrlInfoMap = [
 	{
 		key: CURRENT_SCHEDULE,
@@ -40,6 +41,11 @@ const apiUrlInfoMap = [
 		description: 'Results',
 		url: 'http://ergast.com/api/f1/current/last/results.json'
 	},
+	{
+		key: DRIVERS,
+		description: 'Drivers',
+		url: 'http://ergast.com/api/f1/current/drivers'
+	}
 	
 ]
 

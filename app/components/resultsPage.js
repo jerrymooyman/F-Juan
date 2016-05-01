@@ -21,11 +21,53 @@ class ResultsPage extends Component {
     this.props.onRefresh()
   }
 
+		createResultsList() {
+			if (!this.props.data) return ''
+
+			const iconButtonElement = (
+			  <IconButton
+			    touch={true}
+			    tooltip="more"
+			    tooltipPosition="bottom-left"
+			  >
+			    <MoreVertIcon color={Colors.grey400} />
+			  </IconButton>
+			);
+
+			const rightIconMenu = (
+			  <IconMenu iconButtonElement={iconButtonElement}>
+			    <MenuItem>Driver Info</MenuItem>
+			    <MenuItem>Constructor Info</MenuItem>
+			  </IconMenu>
+			);
+
+			return this.props.data.map( row => {
+		    		return (
+					      <ListItem
+					      	key={ row.position }
+					        // leftAvatar={<Avatar icon={<FileFolder />} />}
+
+  							rightIconButton={rightIconMenu}
+
+					        // rightIcon={<ActionInfo />}
+					        primaryText={	row.position + '  (' + 
+					        				row.number + ')  ' + 
+					        				row.driver + '  -  ' +
+					        				row.constructor }
+					        secondaryText={ row.status + ' - time: ' +
+					    					row.time + ' from grid ' +
+					    					row.grid }
+					      />
+		    			)
+		    		})
+		}
+
   render() {
     return (
       <div>
       	<ResultsList 	title={'Rnd ' + this.props.round + ' ' + this.props.raceName} 
-      					data={this.props.results} />
+      					data={this.props.results} 
+      					/>
       </div>
     )
   }
@@ -40,7 +82,11 @@ const flattenResults = (results) => {
     	number: result.number,
     	driver: result.Driver.givenName + ' ' + result.Driver.familyName,
     	constructor: result.Constructor.name,
-    	time: (result.Time) ? result.Time.time : ''
+    	time: (result.Time) ? result.Time.time : '',
+    	points: result.points,
+    	grid: result.grid,
+    	laps: result.laps,
+    	status: result.status
     }
    })
 }
