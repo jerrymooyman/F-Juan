@@ -9,5 +9,5 @@ This is a project to learn about the following tech-stack:
 
 **Demo** - [http://f-juan.herokuapp.com/](http://f-juan.herokuapp.com)
 
-The data is resourced from the [Ergast Developer API](http://ergast.com/mrd/)
+The data is sourced from the [Ergast Developer API](http://ergast.com/mrd/)
 
