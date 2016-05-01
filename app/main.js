@@ -22,7 +22,8 @@ import Home from './components/home'
 import DriversPage from './components/driversPage'
 import RaceSchedulePage from './components/raceSchedulePage'
 import StandingsPage from './components/standingsPage'
-import ResultsPage from './components/resultsPage.js'
+import ResultsPage from './components/resultsPage'
+import QualifyingPage from './components/qualifyingPage'
 // import CustomerList from './components/CustomerList.js'
 // import About from './components/About.js'
 // import NoMatch from './components/errors/404.js'
@@ -42,6 +43,7 @@ render(
                 <Route path='schedule' component={RaceSchedulePage}/>
                 <Route path='standings' component={DriversPage}/>
                 <Route path='drivers' component={DriversPage}/>
+                <Route path='qualifying' component={QualifyingPage}/>
                 <Route path='constructors' component={DriversPage}/>
 	    	</Route>
 	  	</Router>

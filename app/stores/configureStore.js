@@ -34,6 +34,15 @@ const initialState = {
 	    location: null,
 	  	results:null,
 	},
+	qualifying: {
+		season: null,
+		round: null,
+		raceName: null,
+		circuitName: null,
+		location: null,
+		date: null,
+		results: null
+	},
 	raceSchedule: {
 		season: null,
 		races: null
@@ -47,16 +56,14 @@ export default function configureStore(state = initialState) {
 	const store = createStore(
 		rootReducer,
 		state,
-
-		applyMiddleware(reduxThunk)
-		// compose(
-		// 	applyMiddleware(
-		// 		reduxRouter, 
-		// 		reduxThunk, 
-		// 		reduxlogger
-		// 	),
-			// window.devToolsExtension ? window.devToolsExtension() : null //TODO: setup redux dev tools - DevTools.instrument()
-		// )
+		compose(
+			applyMiddleware(
+				reduxRouter, 
+				reduxThunk, 
+				reduxlogger
+			),
+			window.devToolsExtension ? window.devToolsExtension() : null //TODO: setup redux dev tools - DevTools.instrument()
+		)
 	)
 	return store
 }

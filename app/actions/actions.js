@@ -15,6 +15,11 @@ const pageInfoMap = [
 		route: '/'
 	},
 	{
+		key: 'qualifying',
+		title: 'Qualifying',
+		route: '/qualifying'
+	},
+	{
 		key: 'standings',
 		title: 'Standings',
 		route: '/standings'
@@ -30,6 +35,7 @@ const pageInfoMap = [
 export const CURRENT_SCHEDULE = 'CURRENT_SCHEDULE'
 export const RESULTS = 'RESULTS'
 export const DRIVERS = 'DRIVERS'
+export const QUALIFYING = 'QUALIFYING'
 const apiUrlInfoMap = [
 	{
 		key: CURRENT_SCHEDULE,
@@ -40,6 +46,11 @@ const apiUrlInfoMap = [
 		key: RESULTS,
 		description: 'Results',
 		url: 'http://ergast.com/api/f1/current/last/results.json'
+	},
+	{
+		key: QUALIFYING,
+		description: 'Qualifying',
+		url: 'http://ergast.com/api/f1/2016/4/qualifying.json'
 	},
 	{
 		key: DRIVERS,
