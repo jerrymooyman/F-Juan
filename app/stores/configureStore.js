@@ -47,14 +47,16 @@ export default function configureStore(state = initialState) {
 	const store = createStore(
 		rootReducer,
 		state,
-		compose(
-			applyMiddleware(
-				reduxRouter, 
-				reduxThunk, 
-				reduxlogger
-			),
-			window.devToolsExtension ? window.devToolsExtension() : null //TODO: setup redux dev tools - DevTools.instrument()
-		)
+
+		applyMiddleware(reduxThunk)
+		// compose(
+		// 	applyMiddleware(
+		// 		reduxRouter, 
+		// 		reduxThunk, 
+		// 		reduxlogger
+		// 	),
+			// window.devToolsExtension ? window.devToolsExtension() : null //TODO: setup redux dev tools - DevTools.instrument()
+		// )
 	)
 	return store
 }
