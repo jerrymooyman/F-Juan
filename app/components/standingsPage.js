@@ -3,19 +3,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-//TIP: import your actions
-//import {
-//  myAction
-//} from '../../actions/actions'
+import ResultsList from './common/standingsList'
+
+
+import {
+  fetchData,
+
+  RESULTS
+} from '../actions/actions'
 
 class StandingsPage extends Component {
 
   render() {
+    let title =  this.props.raceInfo ? 'Rnd ' + this.props.raceInfo.round + ' ' + this.props.raceInfo.raceName : ''
     return (
-      <div>
-      	Standings Page
-      </div>
-    )
+        <div>
+          <QualifyingList title={ title }
+                  data={this.props.results} 
+                  />
+        </div>
+      )
   }
 
 }

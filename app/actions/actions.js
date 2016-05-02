@@ -36,6 +36,8 @@ export const CURRENT_SCHEDULE = 'CURRENT_SCHEDULE'
 export const RESULTS = 'RESULTS'
 export const DRIVERS = 'DRIVERS'
 export const QUALIFYING = 'QUALIFYING'
+export const DRIVER_STANDINGS = 'DRIVER_STANDINGS'
+export const CONSTRUCTOR_STANDINGS = 'CONSTRUCTOR_STANDINGS'
 const apiUrlInfoMap = [
 	{
 		key: CURRENT_SCHEDULE,
@@ -51,6 +53,16 @@ const apiUrlInfoMap = [
 		key: QUALIFYING,
 		description: 'Qualifying',
 		url: 'http://ergast.com/api/f1/2016/4/qualifying.json'
+	},
+	{
+		key: DRIVER_STANDINGS,
+		description: 'Driver Standings',
+		url: 'http://ergast.com/api/f1/current/driverStandings.json'
+	},
+	{
+		key: CONSTRUCTOR_STANDINGS,
+		description: 'Constructor Standings',
+		url: 'http://ergast.com/api/f1/current/constructorStandings.json'
 	},
 	{
 		key: DRIVERS,
