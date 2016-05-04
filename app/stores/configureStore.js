@@ -59,10 +59,9 @@ export default function configureStore(state = initialState) {
 		compose(
 			applyMiddleware(
 				reduxThunk, 
-				reduxlogger,
-				reduxRouter
-			),
-			window.devToolsExtension ? window.devToolsExtension() : null //TODO: setup redux dev tools - DevTools.instrument()
+				reduxRouter,
+				reduxlogger
+			)
 		)
 	)
 	return store
