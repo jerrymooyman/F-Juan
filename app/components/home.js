@@ -1,16 +1,17 @@
 'use strict'
 
-import React, { Component } from 'react'
+import React from 'react'
 
-class Home extends Component {
+class Home extends React.Component {
 
-	render() {
+    render() {
 
-		return (
-			<div>
-			</div>
-		)
-	}
+        return (
+            <div>
+                Home Page
+            </div>
+        )
+    }
 }
 
-module.exports = Home
+export default Home

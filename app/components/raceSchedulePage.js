@@ -3,20 +3,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import RaisedButton from 'material-ui/lib/raised-button'
-import Paper from 'material-ui/lib/paper'
-import LoadingIndicator from './common/loadingIndicator'
-import DataTable from './dataTable'
-import CardList from './cardList'
-
-
-import FloatingActionButton from 'material-ui/lib/floating-action-button';
-import RefreshIcon from 'material-ui/lib/svg-icons/navigation/refresh'
-
 import {
-  fetchData,
+    fetchData,
 
-  CURRENT_SCHEDULE
+    CURRENT_SCHEDULE
 } from '../actions/actions'
 
 
@@ -25,54 +15,83 @@ import {
 //  myAction
 //} from '../../actions/actions'
 
-class raceSchedule extends Component {
+class RaceCard extends Component {
 
-  componentDidMount() {
-    this.props.onRefresh()
-  }
+    render() {
+        return (
+            <div className='card'>
+                <div className='title'>
+                    { this.props.raceDetails.raceName }
+                </div>
+                <div className='date-time'>
+                    { this.props.raceDetails.date}
+                </div>
+                <div className='location'>
+                    { this.props.raceDetails.location}
+                </div>
+                <div className='winner'>
+                    winner's name
+                </div>
+            </div>
+        )
+    }
+}
 
-  render() {
-            // <DataTable dataTable={this.props.races} />
+class RaceSchedule extends Component {
+
+    componentDidMount() {
+        this.props.onRefresh()
+    }
+
+    render() {
+        // <DataTable dataTable={this.props.races} />
         // <Paper style={style.paper} zDepth={3} >
-    return (
-      <div>
-          <CardList data={this.props.races} />
-      </div>
-    )
-  }
+        return (
+            <div className='list'>
+            {
+                (this.props.races) ?
+                    this.props.races.map(row => {
+                        return <RaceCard key={ row.raceName} raceDetails={ row } />
+                    })
+                :
+                    ''
+            }
+            </div>
+        )
+    }
 
 }
 
 const flattenRaces = (races) => {
-  if (!races) return null
-  return races.map(race => {
-    return {
-      round: race.round,
-      raceName: race.raceName,
-      date: race.date,
-      time: race.time,
-      circuitName: race.Circuit.circuitName,
-      location: race.Circuit.Location.locality + ', ' + race.Circuit.Location.country
-    }
-  })
+    if (!races) return null
+    return races.map(race => {
+        return {
+            round: race.round,
+            raceName: race.raceName,
+            date: race.date,
+            time: race.time,
+            circuitName: race.Circuit.circuitName,
+            location: race.Circuit.Location.locality + ', ' + race.Circuit.Location.country
+        }
+    })
 }
 
 const mapStateToProps = (state) => {
-  return {
-    season: state.raceSchedule.season,
-    races: flattenRaces(state.raceSchedule.races)
-  }
+    return {
+        season: state.raceSchedule.season,
+        races: flattenRaces(state.raceSchedule.races)
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onRefresh: () => {
-      dispatch(fetchData(CURRENT_SCHEDULE))
+    return {
+        onRefresh: () => {
+            dispatch(fetchData(CURRENT_SCHEDULE))
+        }
     }
-  }
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(raceSchedule)
+    mapStateToProps,
+    mapDispatchToProps
+)(RaceSchedule)

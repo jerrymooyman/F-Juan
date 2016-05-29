@@ -1,52 +1,55 @@
-import jQuery from 'jquery';
-import $ from 'jquery';
+'use strict'
 
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
 
-import LeftNavDock from './common/leftNav'
-import NavBar from './common/appBar'
+import Header from './common/header'
+import Footer from './common/footer'
+import NavBar from './common/navBar'
 
-import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
+import Home from './home'
+import SchedulePage from './raceSchedulePage'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-// Needed for onTouchTap 
-// http://stackoverflow.com/a/34015469/988941 
-injectTapEventPlugin();
-
-
-const styles = {
-  container: {
-    textAlign: 'center',
-    paddingTop: 200,
-  },
-  appbar: {
-    position: 'fixed',
-    top: 0
-  }
-};
-
-const muiTheme = getMuiTheme({
-  // palette: {
-  //   accent1Color: deepOrange500,
-  // },
-});
-
+import injectTapEventPlugin from 'react-tap-event-plugin'
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin()
 
 class App extends React.Component {
-	
-	render() {
 
-		return (
-      		<MuiThemeProvider muiTheme={muiTheme}>
-				<div>
-					<NavBar/>
-					<LeftNavDock />
-					{this.props.children}
-				</div>
-      		</MuiThemeProvider>
-		);
-	}
+    render() {
+
+        return (
+            <div className = 'wrapper' >
+              <Header />
+              <NavBar />
+              { this.props.displayPage }
+              <Footer />
+            </div>
+        )
+    }
 }
 
-module.exports = App;
+const getDisplayPage = function(pageName) {
+    switch (pageName) {
+        case 'Schedule':
+            return <SchedulePage />
+        default:
+            return <Home />
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        displayPage: getDisplayPage(state.uiview.currentPage)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)

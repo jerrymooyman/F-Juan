@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import RefreshIndicator from 'material-ui/lib/refresh-indicator';
 
 const style = {
   container: {
@@ -24,14 +23,6 @@ class LoadingIndicator extends Component {
   render() {
     return (
         <div style={style.container}>
-          <RefreshIndicator
-            size={50}
-            left={70}
-            top={0}
-            loadingColor={"#FF9800"}
-            status="hide"
-            style={style.refresh}
-          />
         </div>
     )
   }

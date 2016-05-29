@@ -7,8 +7,8 @@ import resultsReducer from './resultsReducer'
 import qualifyingReducer from './qualifyingReducer'
 
 export default combineReducers({
-	uiview: uiviewReducer,
-	results: resultsReducer,
-	raceSchedule: raceScheduleReducer,
-	qualifying: qualifyingReducer
+    uiview: uiviewReducer,
+    results: resultsReducer,
+    raceSchedule: raceScheduleReducer,
+    qualifying: qualifyingReducer
 })
